@@ -108,7 +108,7 @@ OR
    heroku restart
    ```
 
-##Deploy on Azure
+## Deploy on Azure
 
 ### Azure Button
 
@@ -123,11 +123,11 @@ Use the button below to instantly setup your own Gatekeeper instance on Azure.
    ```
    azure site create SITE_NAME --git
    ```
-   
+
 2. Provide OAUTH_CLIENT_ID and OAUTH_CLIENT_SECRET:
 
    ```
-   azure site appsetting add OAUTH_CLIENT_ID=XXXX 
+   azure site appsetting add OAUTH_CLIENT_ID=XXXX
    azure site appsetting add OAUTH_CLIENT_SECRET=YYYY
    ```
 
@@ -136,3 +136,13 @@ Use the button below to instantly setup your own Gatekeeper instance on Azure.
    ```
    git push azure master
    ```
+
+## Deploy with Docker
+
+Build image:
+
+    docker build -t gatekeeper .
+
+Run with environnement variables for the configuration:
+
+    docker run -e OAUTH_CLIENT_ID=XXXX -e OAUTH_CLIENT_SECRET=YYYY -p 9999:9999 gatekeeper
